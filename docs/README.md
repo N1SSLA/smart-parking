@@ -14,3 +14,25 @@
 Действующий макет парковки (3-4 места) с автоматическим открытием шлагбаума по QR-коду из приложения и актуальным отображением занятости мест.
 ### 5. Ссылка на Git:
 https://github.com/N1SSLA/smart-parking
+
+## Как начать 
+Сервер: Python + FastAPI
+Raspberry Pi: Python + gpiozero
+Android: Java + Android SDK
+
+### 1. Клонировать репозиторий
+git clone https://github.com/N1SSLA/smart-parking.git
+cd smart-parking
+
+### 2. Настроить git
+git config user.name "YourName"
+git config user.email "your@email"
+
+### 3. Убедиться, что на main
+git switch main
+git pull
+
+### 4. Создать ветку под свою задачу
+git switch -c <тип>/<имя-задачи>
+
+Из типов пока используем future, chore (для зависимостей и инфраструктуры), test
