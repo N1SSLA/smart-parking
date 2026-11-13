@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2" pages="3">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" pages="3">
   <diagram name="UC" id="dEODX6r6GepI93Ix3rQj">
     <mxGraphModel dx="1343" dy="784" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -428,135 +428,135 @@
     </mxGraphModel>
   </diagram>
   <diagram id="RfcIG22CMaxtzZM_2eTo" name="DB koncept">
-    <mxGraphModel dx="1356" dy="311" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2253" dy="834" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="p8dOeUMd3lcZB57cX5SZ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1" source="ratyrVotdxd0BfWH29bY-1" target="p8dOeUMd3lcZB57cX5SZ-2">
+        <mxCell id="p8dOeUMd3lcZB57cX5SZ-3" edge="1" parent="1" source="ratyrVotdxd0BfWH29bY-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" target="p8dOeUMd3lcZB57cX5SZ-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="p8dOeUMd3lcZB57cX5SZ-5" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="p8dOeUMd3lcZB57cX5SZ-3">
-          <mxGeometry x="-0.875" y="2" relative="1" as="geometry">
+        <mxCell id="p8dOeUMd3lcZB57cX5SZ-5" connectable="0" parent="p8dOeUMd3lcZB57cX5SZ-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.875" y="2" as="geometry">
             <mxPoint y="-13" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="p8dOeUMd3lcZB57cX5SZ-6" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="p8dOeUMd3lcZB57cX5SZ-3">
-          <mxGeometry x="0.8229" relative="1" as="geometry">
+        <mxCell id="p8dOeUMd3lcZB57cX5SZ-6" connectable="0" parent="p8dOeUMd3lcZB57cX5SZ-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.8229" as="geometry">
             <mxPoint y="-15" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="p8dOeUMd3lcZB57cX5SZ-7" value="Имеет" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="p8dOeUMd3lcZB57cX5SZ-3">
-          <mxGeometry x="-0.1667" y="-2" relative="1" as="geometry">
+        <mxCell id="p8dOeUMd3lcZB57cX5SZ-7" connectable="0" parent="p8dOeUMd3lcZB57cX5SZ-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Имеет" vertex="1">
+          <mxGeometry relative="1" x="-0.1667" y="-2" as="geometry">
             <mxPoint x="10" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-1" value="Водитель" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="210" y="220" width="110" height="50" as="geometry" />
+        <mxCell id="ratyrVotdxd0BfWH29bY-1" parent="1" style="html=1;whiteSpace=wrap;" value="Водитель" vertex="1">
+          <mxGeometry height="50" width="110" x="210" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-2" value="Парковочное место" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="-30" y="360" width="110" height="50" as="geometry" />
+        <mxCell id="ratyrVotdxd0BfWH29bY-2" parent="1" style="html=1;whiteSpace=wrap;" value="Парковочное место" vertex="1">
+          <mxGeometry height="50" width="110" x="-30" y="360" as="geometry" />
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-3" value="Бронирование" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="210" y="360" width="110" height="50" as="geometry" />
+        <mxCell id="ratyrVotdxd0BfWH29bY-3" parent="1" style="html=1;whiteSpace=wrap;" value="Бронирование" vertex="1">
+          <mxGeometry height="50" width="110" x="210" y="360" as="geometry" />
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-4" value="Архив бронирования" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="-30" y="220" width="110" height="50" as="geometry" />
+        <mxCell id="ratyrVotdxd0BfWH29bY-4" parent="1" style="html=1;whiteSpace=wrap;" value="Архив бронирования" vertex="1">
+          <mxGeometry height="50" width="110" x="-30" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-5" value="RFID метка" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="210" y="70" width="110" height="50" as="geometry" />
+        <mxCell id="ratyrVotdxd0BfWH29bY-5" parent="1" style="html=1;whiteSpace=wrap;" value="RFID метка" vertex="1">
+          <mxGeometry height="50" width="110" x="210" y="70" as="geometry" />
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-7" value="Что с балансом/платежами делать&lt;div&gt;Просто балик&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="460" y="330" width="110" height="50" as="geometry" />
+        <mxCell id="ratyrVotdxd0BfWH29bY-7" parent="1" style="html=1;whiteSpace=wrap;" value="Что с балансом/платежами делать&lt;div&gt;Просто балик&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="460" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-8" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="ratyrVotdxd0BfWH29bY-1" target="ratyrVotdxd0BfWH29bY-5" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-8" edge="1" parent="1" source="ratyrVotdxd0BfWH29bY-1" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="ratyrVotdxd0BfWH29bY-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="350" y="210" as="sourcePoint" />
             <mxPoint x="400" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-9" value="Принадлежит" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-8" vertex="1" connectable="0">
-          <mxGeometry x="0.02" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-9" connectable="0" parent="ratyrVotdxd0BfWH29bY-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Принадлежит" vertex="1">
+          <mxGeometry relative="1" x="0.02" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-10" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-8" vertex="1" connectable="0">
-          <mxGeometry x="-0.76" y="1" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-10" connectable="0" parent="ratyrVotdxd0BfWH29bY-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.76" y="1" as="geometry">
             <mxPoint x="16" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-11" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-8" vertex="1" connectable="0">
-          <mxGeometry x="0.83" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-11" connectable="0" parent="ratyrVotdxd0BfWH29bY-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="m" vertex="1">
+          <mxGeometry relative="1" x="0.83" as="geometry">
             <mxPoint x="15" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-12" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ratyrVotdxd0BfWH29bY-1" target="ratyrVotdxd0BfWH29bY-3" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-12" edge="1" parent="1" source="ratyrVotdxd0BfWH29bY-1" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ratyrVotdxd0BfWH29bY-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="380" y="320" as="sourcePoint" />
             <mxPoint x="380" y="220" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-13" value="Создает" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-12" vertex="1" connectable="0">
-          <mxGeometry x="0.02" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-13" connectable="0" parent="ratyrVotdxd0BfWH29bY-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Создает" vertex="1">
+          <mxGeometry relative="1" x="0.02" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-14" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-12" vertex="1" connectable="0">
-          <mxGeometry x="-0.76" y="1" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-14" connectable="0" parent="ratyrVotdxd0BfWH29bY-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.76" y="1" as="geometry">
             <mxPoint x="16" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-15" value="n" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-12" vertex="1" connectable="0">
-          <mxGeometry x="0.83" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-15" connectable="0" parent="ratyrVotdxd0BfWH29bY-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="n" vertex="1">
+          <mxGeometry relative="1" x="0.83" as="geometry">
             <mxPoint x="15" y="-2" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-17" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="ratyrVotdxd0BfWH29bY-1" target="ratyrVotdxd0BfWH29bY-4" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-17" edge="1" parent="1" source="ratyrVotdxd0BfWH29bY-1" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="ratyrVotdxd0BfWH29bY-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="170" y="240" as="sourcePoint" />
             <mxPoint x="170" y="330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-18" value="Фиксирует" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-17" vertex="1" connectable="0">
-          <mxGeometry x="0.02" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-18" connectable="0" parent="ratyrVotdxd0BfWH29bY-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Фиксирует" vertex="1">
+          <mxGeometry relative="1" x="0.02" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-19" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-17" vertex="1" connectable="0">
-          <mxGeometry x="-0.76" y="1" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-19" connectable="0" parent="ratyrVotdxd0BfWH29bY-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.76" y="1" as="geometry">
             <mxPoint x="5" y="-16" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-20" value="m" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-17" vertex="1" connectable="0">
-          <mxGeometry x="0.83" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-20" connectable="0" parent="ratyrVotdxd0BfWH29bY-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="m" vertex="1">
+          <mxGeometry relative="1" x="0.83" as="geometry">
             <mxPoint x="-1" y="-15" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-21" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="ratyrVotdxd0BfWH29bY-3" target="ratyrVotdxd0BfWH29bY-2" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-21" edge="1" parent="1" source="ratyrVotdxd0BfWH29bY-3" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="ratyrVotdxd0BfWH29bY-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="230" y="350" as="sourcePoint" />
             <mxPoint x="100" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-22" value="Резервирует" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-21" vertex="1" connectable="0">
-          <mxGeometry x="0.02" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-22" connectable="0" parent="ratyrVotdxd0BfWH29bY-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Резервирует" vertex="1">
+          <mxGeometry relative="1" x="0.02" as="geometry">
             <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-23" value="k" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-21" vertex="1" connectable="0">
-          <mxGeometry x="-0.76" y="1" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-23" connectable="0" parent="ratyrVotdxd0BfWH29bY-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="k" vertex="1">
+          <mxGeometry relative="1" x="-0.76" y="1" as="geometry">
             <mxPoint x="5" y="-16" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ratyrVotdxd0BfWH29bY-24" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ratyrVotdxd0BfWH29bY-21" vertex="1" connectable="0">
-          <mxGeometry x="0.83" relative="1" as="geometry">
+        <mxCell id="ratyrVotdxd0BfWH29bY-24" connectable="0" parent="ratyrVotdxd0BfWH29bY-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.83" as="geometry">
             <mxPoint x="-1" y="-15" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="p8dOeUMd3lcZB57cX5SZ-1" value="Когда водитель создает бронь (например на завтра, она добавляется в таблицу Бронирования)&lt;div&gt;Когда водитель прикладывает карту эта запись переходит в таблицу сессии (таблица текущих парковок)&lt;/div&gt;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="460" y="390" width="230" height="170" as="geometry" />
+        <mxCell id="p8dOeUMd3lcZB57cX5SZ-1" parent="1" style="html=1;whiteSpace=wrap;" value="Когда водитель создает бронь (например на завтра, она добавляется в таблицу Бронирования)&lt;div&gt;Когда водитель прикладывает карту эта запись переходит в таблицу сессии (таблица текущих парковок)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="230" x="530" y="530" as="geometry" />
         </mxCell>
-        <mxCell id="p8dOeUMd3lcZB57cX5SZ-2" value="Сессия" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="440" y="220" width="110" height="50" as="geometry" />
+        <mxCell id="p8dOeUMd3lcZB57cX5SZ-2" parent="1" style="html=1;whiteSpace=wrap;" value="Сессия" vertex="1">
+          <mxGeometry height="50" width="110" x="440" y="220" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
