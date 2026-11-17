@@ -36,3 +36,17 @@ git pull
 git switch -c <тип>/<имя-задачи>
 
 Из типов пока используем future, chore (для зависимостей и инфраструктуры), test
+
+### 5. Запустить виртуальное окружение чтобы докачивать зависимости отдельно от системы
+cd .\server      ИЛИ       cd.\pi
+cd .\.venv\Scripts
+.\Activate.ps1 
+
+### поставить зависимости если надо 
+pip install -r requirements.txt
+
+### Если надо запустить сервер локально! (пайплайн я настрою когда-нибудь)
+Зайти в папку .\server (Обязательно в .venv)
+uvicorn app.main:app --reload --port 8000
+
+http://localhost:8000/docs
