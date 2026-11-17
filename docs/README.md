@@ -38,11 +38,10 @@ git switch -c <тип>/<имя-задачи>
 Из типов пока используем server,pi,android / future, chore (для зависимостей и инфраструктуры), test
 
 Желательный вид веток
-      main
- /     |     \
-pi  server android
-/|\   /|\    /|\
-future...
+pi/future/openFunc
+server/future/auth
+android/future/...
+
 
 ### 5. Запустить виртуальное окружение чтобы докачивать зависимости отдельно от системы
 cd .\server      ИЛИ       cd.\pi
