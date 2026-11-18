@@ -57,11 +57,10 @@ jobs:
           Start-Sleep -Seconds 10
           $response = Invoke-WebRequest -Uri http://localhost:8000/health -UseBasicParsing
           if ($response.StatusCode -eq 200) {
-            Write-Host "Сервер успешно запущен!"
+            Write-Host "Server started!"
           } else {
-            throw "Сервер не отвечает"
+            throw "Server not started"
           }
-            # 5. Запуск туннеля и извлечение публичного URL
       
       
       
@@ -87,11 +86,11 @@ jobs:
           
           if ($logContent -match 'https://[a-zA-Z0-9-]+\.tunnel4\.com') {
               $publicUrl = $matches[0]
-              Write-Host "Публичный URL извлечён: $publicUrl"
+              Write-Host "New URL of server: $publicUrl"
               # Вывести в переменную GITHUB_OUTPUT для использования на следующих шагах
               "PUBLIC_URL=$publicUrl" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
           } else {
-              Write-Warning "URL не найден в логе. Содержимое лога:"
+              Write-Warning "URL not found. Logs:"
               Write-Host $logContent
               # Если xtunnel не поддерживает перенаправление вывода, можно использовать запасной вариант — вернуть сообщение об ошибке
               "PUBLIC_URL=URL_NOT_FOUND" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
