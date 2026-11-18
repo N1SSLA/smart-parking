@@ -61,3 +61,38 @@ jobs:
           } else {
             throw "Сервер не отвечает"
           }
+            # 5. Запуск туннеля и извлечение публичного URL
+      
+      
+      
+      - name: Start Tunnel and Extract URL
+        id: tunnel
+        shell: powershell
+        run: |
+          # Завершить старый процесс
+          Get-Process -Name "xtunnel" -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 1
+
+          # Запустить xtunnel, перенаправив вывод в файл
+          $logPath = "C:\github-deploy\tunnel.log"
+          Start-Process -FilePath "C:\Users\PC\Desktop\xtunnel.exe" `
+                        -ArgumentList "http", "8000" `
+                        -WindowStyle Hidden `
+                        -RedirectStandardOutput $logPath
+
+          Start-Sleep -Seconds 5
+
+          # 4. Прочитать лог-файл и извлечь URL (формат обычно: https://xxxx.tunnel4.com)
+          $logContent = Get-Content $logPath -Raw -ErrorAction SilentlyContinue
+          
+          if ($logContent -match 'https://[a-zA-Z0-9-]+\.tunnel4\.com') {
+              $publicUrl = $matches[0]
+              Write-Host "Публичный URL извлечён: $publicUrl"
+              # Вывести в переменную GITHUB_OUTPUT для использования на следующих шагах
+              "PUBLIC_URL=$publicUrl" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          } else {
+              Write-Warning "URL не найден в логе. Содержимое лога:"
+              Write-Host $logContent
+              # Если xtunnel не поддерживает перенаправление вывода, можно использовать запасной вариант — вернуть сообщение об ошибке
+              "PUBLIC_URL=URL_NOT_FOUND" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          }
