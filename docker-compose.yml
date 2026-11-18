@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: smart-parking-db
+    environment:
+      POSTGRES_USER: parking_user
+      POSTGRES_PASSWORD: parking_pass
+      POSTGRES_DB: smart_parking
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U parking_user -d smart_parking"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  web:
+    build:
+      context: .               
+      dockerfile: server/Dockerfile
+    container_name: smart-parking-api
+    ports:
+      - "8000:8000"             
+    environment:
+      DATABASE_URL: postgresql+asyncpg://parking_user:parking_pass@db:5432/smart_parking
+    depends_on:
+      db:
+        condition: service_healthy 
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
