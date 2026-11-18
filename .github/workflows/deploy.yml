@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [windows]
+    runs-on: [self-hosted, Windows, X64]
     
     # защита от параллельных запусков
     concurrency:
