@@ -1,12 +1,13 @@
-FROM python3.12-slim
+FROM python:3.12-slim
 
-WORKDIR app
+WORKDIR /app
 
-COPY serverrequirements.txt .
+COPY server/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY serverapp .app
+# Копируем папку app
+COPY server/app ./app
 
 EXPOSE 8000
 
-CMD [uvicorn, app.mainapp, --host, 0.0.0.0, --port, 8000]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
