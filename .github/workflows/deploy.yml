@@ -26,6 +26,14 @@ jobs:
           if (!(Test-Path $targetDir)) { New-Item -ItemType Directory -Path $targetDir -Force }
           
           robocopy ${{ github.workspace }} $targetDir /E /XD .git /NFL /NDL /NJH /NJS
+          
+          if ($LASTEXITCODE -ge 8) { 
+              Write-Error "Robocopy failed with exit code $LASTEXITCODE"
+              exit $LASTEXITCODE 
+          } else { 
+              Write-Host "Robocopy completed with exit code $LASTEXITCODE (success)"
+              exit 0 
+          }
 
       # Проверка кода (для Python)
       - name: Tests
