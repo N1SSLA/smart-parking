@@ -10,7 +10,6 @@ jobs:
   deploy:
     runs-on: [self-hosted, Windows, X64]
     
-    # защита от параллельных запусков
     concurrency:
       group: deploy-to-pc
       cancel-in-progress: true
@@ -60,33 +59,4 @@ jobs:
             Write-Host "Server started!"
           } else {
             throw "Server not started"
-          }
-      
-      
-      
-      - name: Start Tunnel and Extract URL
-        id: tunnel
-        shell: powershell
-        run: |
-          Get-Process -Name "xtunnel" -ErrorAction SilentlyContinue | Stop-Process -Force
-          Start-Sleep -Seconds 1
-
-          $logPath = "C:\github-deploy\tunnel.log"
-
-          if (Test-Path $logPath) { Remove-Item $logPath -Force }
-
-          cmd.exe /c start "" /B "C:\Users\PC\Desktop\xtunnel.exe" http 8000 > $logPath 2>&1
-
-          Start-Sleep -Seconds 5
-
-          $logContent = Get-Content $logPath -Raw -ErrorAction SilentlyContinue
-          
-          if ($logContent -match 'https://[a-zA-Z0-9-]+\.tunnel4\.com') {
-              $publicUrl = $matches[0]
-              Write-Host "New URL of server: $publicUrl"
-              "PUBLIC_URL=$publicUrl" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-          } else {
-              Write-Warning "URL not found. Logs:"
-              Write-Host $logContent
-              "PUBLIC_URL=URL_NOT_FOUND" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
           }
