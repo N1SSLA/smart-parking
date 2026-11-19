@@ -27,7 +27,8 @@ services:
       db:
         condition: service_healthy 
     restart: unless-stopped
-    cloudflared:
+
+  cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: smart-parking-tunnel
     restart: unless-stopped
