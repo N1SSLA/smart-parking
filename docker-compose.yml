@@ -27,6 +27,15 @@ services:
       db:
         condition: service_healthy 
     restart: unless-stopped
+    cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: smart-parking-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - web
 
 volumes:
   postgres_data:
