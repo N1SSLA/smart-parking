@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from app.api import test
+from app.api import test, auth, spots, bookings, device
 from app.db import engine, Base
 from app.models import User, Spot, Booking 
 
@@ -20,6 +20,10 @@ app = FastAPI(
 )
 
 app.include_router(test.router, prefix="/api/v1/test", tags=["test"])
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
+app.include_router(spots.router, prefix="/api/v1/spots", tags=["spots"])
+app.include_router(bookings.router, prefix="/api/v1/bookings", tags=["bookings"])
+app.include_router(device.router, prefix="/device/v1/gate", tags=["device"])
 
 @app.get("/health")
 async def health():
