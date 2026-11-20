@@ -45,6 +45,11 @@ android/future/...
 
 ### 5. Запустить виртуальное окружение чтобы докачивать зависимости отдельно от системы
 cd .\server      ИЛИ       cd.\pi
+ 
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+python -m venv .venv
+ 
+ 
 cd .\.venv\Scripts
 .\Activate.ps1 
 
@@ -52,6 +57,8 @@ cd .\.venv\Scripts
 pip install -r requirements.txt
 
 ### Если надо запустить сервер локально! (пайплайн я настрою когда-нибудь)
+
+
 Зайти в папку .\server (Обязательно в .venv)
 uvicorn app.main:app --reload --port 8000
 
