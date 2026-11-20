@@ -27,12 +27,12 @@ services:
       db:
         condition: service_healthy 
     restart: unless-stopped
-
+    
   cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: smart-parking-tunnel
     restart: unless-stopped
-    command: tunnel --no-autoupdate run
+    command: tunnel --no-autoupdate --protocol http2 --edge-ip-version 4 run
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
     depends_on:
