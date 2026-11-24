@@ -10,7 +10,9 @@ from app.models.user import User
 from app.schemas import BookingCreate, BookingOut
 from app.deps import get_current_user
 
-router = APIRouter()
+router = APIRouter(
+    description="Создание, отмена и история броней текущего пользователя.",
+)
 PRICE_PER_HOUR = 100.0
 
 
@@ -27,7 +29,19 @@ def _out(b: Booking) -> BookingOut:
     )
 
 
-@router.post("", status_code=201, response_model=BookingOut)
+@router.post(
+    "",
+    status_code=201,
+    response_model=BookingOut,
+    summary="Создать бронь",
+    description=(
+        "Создаёт бронь на место на интервал (время с точностью 30 мин, `end > start`). "
+        "Проверяет пересечение с активными бронями (409) и баланс (402), "
+        "списывает `PRICE_PER_HOUR * часы` и сохраняет сумму в `price`. "
+        "Статус новой брони — `plan`. "
+        "400 — `end <= start` или время не кратно 30 мин; 404 — нет места."
+    ),
+)
 async def create_booking(
     data: BookingCreate,
     db: AsyncSession = Depends(get_db),
@@ -71,7 +85,18 @@ async def create_booking(
     return _out(booking)
 
 
-@router.post("/{booking_id}/cancel", response_model=BookingOut)
+@router.post(
+    "/{booking_id}/cancel",
+    response_model=BookingOut,
+    summary="Отменить плановую бронь",
+    description=(
+        "Отменяет **только** бронь в статусе `plan` (ещё не заехали). "
+        "Возврат: >10 мин до старта — полная сумма, ≤10 мин — половина. "
+        "Статус → `archived`. "
+        "400 — бронь уже `in_progress`/`archived` (выезд — только через шлагбаум); "
+        "404 — бронь не найдена или чужая."
+    ),
+)
 async def cancel_booking(
     booking_id: int,
     db: AsyncSession = Depends(get_db),
@@ -98,7 +123,16 @@ async def cancel_booking(
     return _out(booking)
 
 
-@router.get("/my", response_model=list[BookingOut])
+@router.get(
+    "/my",
+    response_model=list[BookingOut],
+    summary="Мои брони (активные + история)",
+    description=(
+        "Возвращает все брони текущего пользователя, сортировка по `start_time desc`. "
+        "Включает `plan`, `in_progress` и `archived`. "
+        "Вызывается экраном «Мои поездки / История»."
+    ),
+)
 async def my_bookings(
     db: AsyncSession = Depends(get_db),
     user: User = Depends(get_current_user),

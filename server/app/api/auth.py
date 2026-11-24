@@ -8,10 +8,22 @@ from app.schemas import RegisterIn, LoginIn, TokenOut, UserOut, CardIn, TopUpIn
 from app.security import hash_password, verify_password, create_access_token
 from app.deps import get_current_user
 
-router = APIRouter()
+router = APIRouter(
+    description="Регистрация, вход, привязка RFID-карты и пополнение баланса.",
+)
 
 
-@router.post("/register", status_code=201, response_model=UserOut)
+@router.post(
+    "/register", 
+    status_code=201, 
+    response_model=UserOut, 
+    summary="Регистрация водителя",
+    description=(
+        "Создаёт пользователя с балансом 0. "
+        "Вызывается один раз при первом запуске Android-приложения. "
+        "409 — логин занят."
+    ),   
+)
 async def register(data: RegisterIn, db: AsyncSession = Depends(get_db)):
     exists = await db.scalar(select(User).where(User.login == data.login))
     if exists:
@@ -23,7 +35,16 @@ async def register(data: RegisterIn, db: AsyncSession = Depends(get_db)):
     return user
 
 
-@router.post("/login", response_model=TokenOut)
+@router.post(
+    "/login",
+    response_model=TokenOut,
+    summary="Вход, выдача JWT",
+    description=(
+        "Аутентифицирует пользователя и возвращает JWT (живёт 24 ч). "
+        "Токен нужен для всех защищённых запросов в заголовке "
+        "`Authorization: Bearer <token>`. 401 — неверные логин/пароль."
+    ),
+)
 async def login(data: LoginIn, db: AsyncSession = Depends(get_db)):
     user = await db.scalar(select(User).where(User.login == data.login))
     if not user or not verify_password(data.password, user.hashed_password):
@@ -36,7 +57,17 @@ async def login(data: LoginIn, db: AsyncSession = Depends(get_db)):
 
 
 
-@router.post("/me/card", response_model=UserOut)
+@router.post(
+    "/me/card",
+    response_model=UserOut,
+    summary="Привязать RFID/NFC-карту",
+    description=(
+        "Привязывает карту (UID) к текущему пользователю. "
+        "Вызывается из Android после регистрации/логина, когда водитель получил карту. "
+        "Без привязки шлагбаум не идентифицирует водителя и отвечает `Unknown card`. "
+        "409 — карта уже привязана к другому пользователю."
+    ),
+)
 async def bind_card(
     data: CardIn,
     db: AsyncSession = Depends(get_db),
@@ -51,7 +82,16 @@ async def bind_card(
     return user
 
 
-@router.post("/me/topup", response_model=UserOut)
+@router.post(
+    "/me/topup",
+    response_model=UserOut,
+    summary="Пополнить баланс (заглушка)",
+    description=(
+        "Увеличивает баланс на `amount` (0 < amount ≤ 10000). "
+        "Вызывается с экрана «Пополнить баланс» перед бронированием. "
+        "Без пополнения `POST /api/v1/bookings` вернёт 402 при нулевом балансе."
+    ),
+)
 async def topup(
     data: TopUpIn,
     db: AsyncSession = Depends(get_db),

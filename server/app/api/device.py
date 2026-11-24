@@ -9,10 +9,29 @@ from app.models.booking import Booking, BookingStatus
 from app.schemas import GateIn, GateResult
 from app.deps import check_device_key
 
-router = APIRouter(dependencies=[Depends(check_device_key)])
+router = APIRouter(
+    dependencies=[Depends(check_device_key)],
+    description=(
+        "Эндпоинты для Raspberry Pi (контроллер шлагбаума). "
+        "Требуют заголовок `X-Device-Key`. Не для Android."
+    ),
+)
 
 
-@router.post("/in", response_model=GateResult)
+@router.post(
+    "/in",
+    response_model=GateResult,
+    summary="Въезд: приложили карту",
+    description=(
+        "Решает, открывать ли шлагбаум на въезде. "
+        "Алгоритм: найти пользователя по `card_uid` → найти `plan`-бронь, покрывающую `now` → "
+        "проверить, что место не занято чужой `in_progress`-бронью → "
+        "перевести бронь в `in_progress` и проставить `actual_start_time`. "
+        "Ответ всегда 200, решение — в полях `allow`/`reason`. "
+        "Возможные reason: `Unknown card`, `No active booking`, `Spot is occupied`. "
+        "403 — неверный `X-Device-Key`. По `allow` Pi открывает шлагбаум."
+    ),
+)
 async def gate_in(data: GateIn, db: AsyncSession = Depends(get_db)):
     user = await db.scalar(select(User).where(User.rfid_uid == data.card_uid))
     if user is None:
@@ -46,7 +65,20 @@ async def gate_in(data: GateIn, db: AsyncSession = Depends(get_db)):
     return GateResult(allow=True, reason="Welcome")
 
 
-@router.post("/out", response_model=GateResult)
+@router.post(
+    "/out",
+    response_model=GateResult,
+    summary="Выезд: приложили карту",
+    description=(
+        "Закрывает сессию на выезде. "
+        "Находит `in_progress`-бронь пользователя, при просрочке (`now > end_time`) "
+        "начисляет штраф 200/час и списывает с баланса, "
+        "переводит бронь в `archived`, проставляет `actual_end_time`. "
+        "Ответ всегда 200: `allow`, `reason`, `fine`. "
+        "Возможные reason: `Unknown card`, `No open session`. "
+        "403 — неверный `X-Device-Key`."
+    ),
+)
 async def gate_out(data: GateIn, db: AsyncSession = Depends(get_db)):
     user = await db.scalar(select(User).where(User.rfid_uid == data.card_uid))
     if user is None:
