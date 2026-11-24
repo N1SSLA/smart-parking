@@ -61,6 +61,7 @@ async def create_booking(
         spot_id=data.spot_id,
         start_time=data.start,
         end_time=data.end,
+        price=price,
         status=BookingStatus.plan,
     )
     db.add(booking)
@@ -79,8 +80,8 @@ async def cancel_booking(
     booking = await db.get(Booking, booking_id)
     if booking is None or booking.user_id != user.id:
         raise HTTPException(status_code=404, detail="Booking not found")
-    if booking.status not in (BookingStatus.plan, BookingStatus.in_progress):
-        raise HTTPException(status_code=400, detail="Booking cannot be cancelled")
+    if booking.status != BookingStatus.plan:
+        raise HTTPException(status_code=400, detail="Only planned bookings can be cancelled")
 
     now = datetime.now(timezone.utc)
     minutes_left = (booking.start_time - now).total_seconds() / 60

@@ -8,6 +8,11 @@ from app.models import User, Spot, Booking
 async def lifespan(app: FastAPI):
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+    async with SessionLocal() as db:
+        existing = await db.scalar(select(Spot.id).limit(1))
+        if existing is None:
+            db.add_all([Spot(name=n) for n in ("A1", "A2", "A3", "A4")])
+            await db.commit()
     yield
     await engine.dispose()
 

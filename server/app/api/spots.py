@@ -18,8 +18,17 @@ async def list_spots(
     db: AsyncSession = Depends(get_db),
     user: User = Depends(get_current_user),
 ):
-    rows = await db.scalars(select(Spot).order_by(Spot.id))
-    return list(rows)
+    now = datetime.now(timezone.utc)
+    spots = list(await db.scalars(select(Spot).order_by(Spot.id)))
+    occupied_ids = set(await db.scalars(
+        select(Booking.spot_id).where(
+            Booking.status == BookingStatus.in_progress,
+        )
+    ))
+    return [
+        SpotOut(id=s.id, name=s.name, is_occupied=s.id in occupied_ids)
+        for s in spots
+    ]
 
 
 @router.get("/{spot_id}/bookings", response_model=list[SpotBookingOut])

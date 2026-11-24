@@ -22,6 +22,7 @@ class Booking(Base):
     # Время по плану
     start_time: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     end_time: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    price: Mapped[float] = mapped_column(Float, default=0.0)
 
     # Фактическое время (заполняется при заезде/выезде)
     actual_start_time: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)

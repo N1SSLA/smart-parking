@@ -6,6 +6,7 @@ from app.db import get_db
 from app.models.user import User
 from app.schemas import RegisterIn, LoginIn, TokenOut, UserOut
 from app.security import hash_password, verify_password, create_access_token
+from app.deps import get_current_user
 
 router = APIRouter()
 
@@ -31,3 +32,32 @@ async def login(data: LoginIn, db: AsyncSession = Depends(get_db)):
         access_token=create_access_token(user.id),
         user=UserOut.model_validate(user),
     )
+
+
+
+
+@router.post("/me/card", response_model=UserOut)
+async def bind_card(
+    data: CardIn,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(get_current_user),
+):
+    taken = await db.scalar(select(User).where(User.rfid_uid == data.card_uid, User.id != user.id))
+    if taken:
+        raise HTTPException(status_code=409, detail="Card already bound")
+    user.rfid_uid = data.card_uid
+    await db.commit()
+    await db.refresh(user)
+    return user
+
+
+@router.post("/me/topup", response_model=UserOut)
+async def topup(
+    data: TopUpIn,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(get_current_user),
+):
+    user.balance += data.amount
+    await db.commit()
+    await db.refresh(user)
+    return user
