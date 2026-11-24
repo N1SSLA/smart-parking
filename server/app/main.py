@@ -4,6 +4,7 @@ from app.api import test, auth, spots, bookings, device
 from app.db import engine, Base, SessionLocal
 from app.models import User, Spot, Booking 
 from app.models.spot import Spot
+from sqlalchemy import select   
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
