@@ -10,9 +10,7 @@ from app.models.user import User
 from app.schemas import BookingCreate, BookingOut
 from app.deps import get_current_user
 
-router = APIRouter(
-    description="Создание, отмена и история броней текущего пользователя.",
-)
+router = APIRouter()
 PRICE_PER_HOUR = 100.0
 
 

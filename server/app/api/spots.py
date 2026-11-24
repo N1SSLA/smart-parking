@@ -10,9 +10,7 @@ from app.models.user import User
 from app.schemas import SpotOut, SpotBookingOut
 from app.deps import get_current_user
 
-router = APIRouter(
-    description="Парковочные места: список с занятостью и занятые интервалы.",
-)
+router = APIRouter()
 
 
 @router.get(

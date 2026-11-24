@@ -9,13 +9,7 @@ from app.models.booking import Booking, BookingStatus
 from app.schemas import GateIn, GateResult
 from app.deps import check_device_key
 
-router = APIRouter(
-    dependencies=[Depends(check_device_key)],
-    description=(
-        "Эндпоинты для Raspberry Pi (контроллер шлагбаума). "
-        "Требуют заголовок `X-Device-Key`. Не для Android."
-    ),
-)
+router = APIRouter(dependencies=[Depends(check_device_key)])
 
 
 @router.post(

@@ -8,9 +8,7 @@ from app.schemas import RegisterIn, LoginIn, TokenOut, UserOut, CardIn, TopUpIn
 from app.security import hash_password, verify_password, create_access_token
 from app.deps import get_current_user
 
-router = APIRouter(
-    description="Регистрация, вход, привязка RFID-карты и пополнение баланса.",
-)
+router = APIRouter()
 
 
 @router.post(
